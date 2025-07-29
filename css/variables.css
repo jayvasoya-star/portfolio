@@ -1,0 +1,65 @@
+/* CSS Variables */
+:root {
+  /* Colors */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-green-400: #4ade80;
+  --color-green-500: #10b981;
+  --color-purple-400: #c084fc;
+  --color-purple-500: #8b5cf6;
+  --color-yellow-400: #facc15;
+  --color-cyan-400: #06b6d4;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(to right, #3b82f6, #8b5cf6);
+  --gradient-text: linear-gradient(to right, #60a5fa, #c084fc, #06b6d4);
+  --gradient-hero: linear-gradient(to bottom right, #000000, #0f172a, #1e293b);
+  --gradient-dark: linear-gradient(to bottom, #0f172a, #000000);
+  --gradient-card: linear-gradient(to bottom right, #0f172a, #1e293b);
+  --gradient-green: linear-gradient(to right, #10b981, #059669);
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-blue: 0 20px 25px -5px rgba(96, 165, 250, 0.1);
+  --shadow-green: 0 10px 15px -3px rgba(16, 185, 129, 0.25);
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.6s ease;
+
+  /* Z-index */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal: 1040;
+  --z-popover: 1050;
+  --z-tooltip: 1060;
+}

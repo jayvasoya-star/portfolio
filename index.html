@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaydeep Vasoya - Senior Flutter Developer Portfolio</title>
+    <meta name="description" content="Jaydeep Vasoya - Senior Flutter Developer with 1+ years experience. Specializing in mobile app development, Flutter, Dart, and creating exceptional user experiences.">
+    <meta name="keywords" content="Flutter Developer, Mobile App Developer, Dart, Android, Firebase, Jaydeep Vasoya">
+    <meta name="author" content="Jaydeep Vasoya">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Jaydeep Vasoya - Senior Flutter Developer">
+    <meta property="og:description" content="Senior Flutter Developer specializing in mobile app development with 1+ years experience">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i data-lucide="menu" id="menuIcon"></i>
+        <i data-lucide="x" id="closeIcon" style="display: none;"></i>
+    </button>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        
+        <!-- Social Links in Mobile Menu -->
+        <div class="flex gap-4" style="margin-top: 2rem;">
+            <a href="https://github.com/jayvasoya-star/" target="_blank" class="social-icon">
+                <i data-lucide="github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/jaydeep-vasoya-634877282" target="_blank" class="social-icon">
+                <i data-lucide="linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/jay_vasoya_03?igsh=MTFmb3h2amYwc2gw" target="_blank" class="social-icon">
+                <i data-lucide="instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/share/1Vj9QvLGPx/" target="_blank" class="social-icon">
+                <i data-lucide="facebook"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+    <div class="hero-content">
+        <div class="hero-container">
+            <!-- Text Section -->
+            <div class="hero-text-section">
+                <div class="hero-welcome">
+                    Welcome to my portfolio
+                </div>
+                
+                <h1 class="hero-title">
+                    Hi, I'm <span class="name-highlight">Jaydeep</span><br>
+                    Flutter Developer
+                </h1>
+                
+                <div class="hero-subtitle">
+                    <span id="typingText" class="hero-subtitle-text typing-text"></span>
+                </div>
+                
+                <p class="hero-description">
+                    I create beautiful, performant mobile applications with Flutter. Passionate about turning ideas into reality through clean code and exceptional user experiences.
+                </p>
+                
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" id="viewWorkBtn">
+                        <i data-lucide="arrow-down"></i>
+                        View My Work
+                    </button>
+                    <a href="https://drive.google.com/file/d/113GJW9eWE-hQrSLSFLTevJzdaphJIe9N/view?usp=sharing" target="_blank" class="btn btn-outline">
+                        <i data-lucide="download"></i>
+                        Download CV
+                    </a>
+                </div>
+                
+                <div class="hero-social">
+                    <a href="https://github.com/jayvasoya-star/" target="_blank" class="social-icon">
+                        <i data-lucide="github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/jaydeep-vasoya-634877282" target="_blank" class="social-icon">
+                        <i data-lucide="linkedin"></i>
+                    </a>
+                    <a href="mailto:jaydeepvasoya88@gmail.com" class="social-icon">
+                        <i data-lucide="mail"></i>
+                    </a>
+                    <a href="https://wa.me/918488934088" target="_blank" class="social-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.787"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/jay_vasoya_03?igsh=MTFmb3h2amYwc2gw" target="_blank" class="social-icon">
+                        <i data-lucide="instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Image Section -->
+            <div class="hero-image-section">
+                <div class="profile-section">
+                    <div class="profile-image">
+                        <!-- Replace this line -->
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/jaydeep-image.jpg-HS4nBc4pDZ25yKjSgHZmXtCKvV5IQo.jpeg" alt="Jaydeep Vasoya - Flutter Developer" />
+                        
+                        <!-- Floating Cards -->
+                        <div class="floating-card floating-card-1">
+                            <div class="floating-card-value">1.4+ Years</div>
+                            <div class="floating-card-label">Experience</div>
+                        </div>
+                        <div class="floating-card floating-card-2">
+                            <div class="floating-card-value">Flutter</div>
+                            <div class="floating-card-label">Specialist</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Profile Stats -->
+                    <div class="profile-stats">
+                        <div class="profile-stat">
+                            <div class="profile-stat-value">10+</div>
+                            <div class="profile-stat-label">Projects</div>
+                        </div>
+                        <div class="profile-stat">
+                            <div class="profile-stat-value">8+</div>
+                            <div class="profile-stat-label">Clients</div>
+                        </div>
+                        <div class="profile-stat">
+                            <div class="profile-stat-value">100%</div>
+                            <div class="profile-stat-label">Success</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- About Section -->
+    <section id="about" class="section-large bg-gradient-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gradient-text">About Me</h2>
+                <p class="section-subtitle">
+                    Passionate Flutter developer with a love for creating exceptional mobile experiences
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-content">
+                    <h3 class="about-title">My Journey</h3>
+                    <div class="about-text">
+                        <p class="text-slate-300 text-lg">
+                            I am a hardworking and ambitious professional who takes pride in my work and responsibilities. With 1 year and 4 months of experience as a Senior Flutter Developer, I specialize in creating beautiful, performant mobile applications.
+                        </p>
+                        <p class="text-slate-300 text-lg">
+                            I believe in maintaining a balanced life by exploring new places, enjoying trips, and spending quality time with friends and colleagues. I consider myself an active, social, and optimistic individual who thrives on challenges and continuous growth.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i data-lucide="code" class="stat-icon text-blue-400"></i>
+                        <div class="stat-value text-blue-400">10+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-card">
+                        <i data-lucide="smartphone" class="stat-icon text-green-400"></i>
+                        <div class="stat-value text-green-400">10+</div>
+                        <div class="stat-label">Apps Developed</div>
+                    </div>
+                    <div class="stat-card">
+                        <i data-lucide="users" class="stat-icon text-purple-400"></i>
+                        <div class="stat-value text-purple-400">8+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                    <div class="stat-card">
+                        <i data-lucide="trophy" class="stat-icon text-yellow-400"></i>
+                        <div class="stat-value text-yellow-400">1.4</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-large bg-black">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gradient-text">Skills & Expertise</h2>
+                <p class="section-subtitle">
+                    Technologies and tools I use to bring ideas to life
+                </p>
+            </div>
+
+            <div class="skills-grid">
+                <!-- Mobile Development -->
+                <div class="skill-category">
+                    <div class="skill-icon skill-icon-blue">
+                        <i data-lucide="smartphone" class="text-blue-400"></i>
+                    </div>
+                    <h3 class="skill-title">Mobile Development</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <div class="skill-dot"></div>
+                            Flutter
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-dot"></div>
+                            Android
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Programming Languages -->
+                <div class="skill-category">
+                    <div class="skill-icon skill-icon-green">
+                        <i data-lucide="code" class="text-green-400"></i>
+                    </div>
+                    <h3 class="skill-title">Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <div class="skill-dot"></div>
+                            Dart
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-dot"></div>
+                            Java
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-dot"></div>
+                            C++
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-dot"></div>
+                            R&D
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Statemanagement -->
+                <div class="skill-category">
+                    <div class="skill-icon skill-icon-purple">
+                        <i data-lucide="layers" class="text-purple-400"></i>
+                    </div>
+                    <h3 class="skill-title">State Management</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <div class="skill-dot"></div>
+                            Provider
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-dot"></div>
+                            Cubit
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-dot"></div>
+                            Bloc
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-dot"></div>
+                            Getx
+                        </li>
+                    </ul>
+                </div>
+                <!-- Database & Backend -->
+                <div class="skill-category">
+                    <div class="skill-icon skill-icon-purple">
+                        <i data-lucide="database" class="text-purple-400"></i>
+                    </div>
+                    <h3 class="skill-title">Database & Backend</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <div class="skill-dot"></div>
+                            Firebase Database
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-dot"></div>
+                            Firebase Firestore
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-dot"></div>
+                            Hive
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-dot"></div>
+                            SharedPreferences
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tools & Design -->
+                <div class="skill-category">
+                    <div class="skill-icon skill-icon-yellow">
+                        <i data-lucide="wrench" class="text-yellow-400"></i>
+                    </div>
+                    <h3 class="skill-title">Tools & Design</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <div class="skill-dot"></div>
+                            Git
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-dot"></div>
+                            VS Code
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-dot"></div>
+                            Android Studio
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-dot"></div>
+                            Figma
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-large bg-gradient-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gradient-text">Project</h2>
+                <p class="section-subtitle">
+                    Showcasing my latest mobile application development work
+                </p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-grid">
+                    <div class="project-image">
+                        <img src="https://xeonlytiutudcoxsemmf.supabase.co/storage/v1/object/public/images//Logo.jpg" alt="IDLE Billionaire Business Game" />
+                    </div>
+
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">IDLE Billionaire - Build Business</h3>
+                            <p class="project-description">
+                                The Ultimate Business & Investment Game! Start from zero and grow your dummy money into a massive empire through smart strategy, business building, and simulated investments.
+                            </p>
+                        </div>
+
+                        <div class="project-features">
+                            <h4 class="features-title">Key Features</h4>
+                            <div class="features-list">
+                                <div class="feature-item">
+                                    <div class="feature-dot"></div>
+                                    <span>Build Virtual Businesses</span>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-dot"></div>
+                                    <span>Simulated Stock Market Trading</span>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-dot"></div>
+                                    <span>Virtual Real Estate Investment</span>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-dot"></div>
+                                    <span>Risk-Free Gaming Experience</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-tech">
+                            <h4 class="tech-title">Tech Stack</h4>
+                            <div class="tech-badges">
+                                <span class="badge">Flutter</span>
+                                <span class="badge">Dart</span>
+                                <span class="badge">Game Development</span>
+                                <span class="badge">Mobile App</span>
+                                <span class="badge">Firebase</span>
+                            </div>
+                        </div>
+
+                        <a href="https://play.google.com/store/apps/details?id=com.idle.billionaire&pcampaignid=web_share" target="_blank" class="btn btn-green project-btn">
+                            <i data-lucide="play"></i>
+                            Download on Play Store
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-large bg-black">
+        <div class="container">
+            <div class="contact-social">
+                <div class="social-icons-large">
+                    <a href="https://github.com/jayvasoya-star/" target="_blank" class="social-icon-large">
+                        <i data-lucide="github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/jaydeep-vasoya-634877282" target="_blank" class="social-icon-large">
+                        <i data-lucide="linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/jay_vasoya_03?igsh=MTFmb3h2amYwc2gw" target="_blank" class="social-icon-large">
+                        <i data-lucide="instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/share/1Vj9QvLGPx/" target="_blank" class="social-icon-large">
+                        <i data-lucide="facebook"></i>
+                    </a>
+                    <a href="https://x.com/JayVasoya4088?s=08" target="_blank" class="social-icon-large">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h2 class="section-title gradient-text">Let's Work Together</h2>
+                <p class="section-subtitle">
+                    Have a project in mind? Let's discuss how we can bring your ideas to life
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-intro">
+                        <h3 class="contact-title">Get in Touch</h3>
+                        <p class="contact-text">
+                            I'm always interested in new opportunities and exciting Flutter projects. Whether you have a question or want to discuss a potential collaboration, feel free to reach out!
+                        </p>
+                    </div>
+
+                    <div class="contact-methods">
+                        <a href="mailto:jaydeepvasoya88@gmail.com?subject=Portfolio%20Inquiry&body=Hi%20Jaydeep,%0D%0A%0D%0AI%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20Flutter%20project%20opportunity.%0D%0A%0D%0ABest%20regards," class="contact-card">
+                            <div class="contact-icon">
+                                <i data-lucide="mail" class="text-blue-400"></i>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-label">Email</div>
+                                <div class="contact-value">jaydeepvasoya88@gmail.com</div>
+                            </div>
+                        </a>
+
+                        <a href="https://wa.me/918488934088?text=Hi%20Jaydeep,%0AI%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20Flutter%20project%20opportunity." target="_blank" class="contact-card">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-green-500">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.787"/>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-label">WhatsApp</div>
+                                <div class="contact-value">+91 8488934088</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Name *</label>
+                                <input type="text" name="name" class="form-input" placeholder="Your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email *</label>
+                                <input type="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Subject *</label>
+                            <input type="text" name="subject" class="form-input" placeholder="Project discussion, Job opportunity, etc." required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Message *</label>
+                            <textarea name="message" class="form-input form-textarea" placeholder="Tell me about your project, requirements, timeline, budget, etc..." rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit" id="submitBtn">
+                            <i data-lucide="send"></i>
+                            Send Email
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    © 2025 Jaydeep Vasoya. Built with HTML, CSS, and JavaScript.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Single JavaScript File -->
+    <script src="js/portfolio.js"></script>
+</body>
+</html>

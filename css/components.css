@@ -1,0 +1,172 @@
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  gap: var(--spacing-sm);
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  box-shadow: var(--shadow-blue);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--color-slate-600);
+  color: var(--color-slate-300);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-blue-400);
+  color: var(--color-blue-400);
+  background: rgba(15, 23, 42, 0.5);
+}
+
+.btn-green {
+  background: var(--gradient-green);
+  color: var(--color-white);
+}
+
+.btn-green:hover {
+  background: linear-gradient(to right, #059669, #047857);
+  box-shadow: var(--shadow-green);
+  transform: translateY(-2px);
+}
+
+/* Cards */
+.card {
+  background: var(--gradient-card);
+  border: 1px solid var(--color-slate-700);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  border-color: var(--color-blue-400);
+  box-shadow: var(--shadow-blue);
+  transform: translateY(-2px);
+}
+
+/* Social Icons */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--color-slate-600);
+  border-radius: var(--radius-lg);
+  color: var(--color-slate-400);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.social-icon:hover {
+  border-color: var(--color-blue-400);
+  color: var(--color-blue-400);
+  background: rgba(15, 23, 42, 0.5);
+  transform: scale(1.1);
+}
+
+.social-icon-large {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid var(--color-slate-600);
+  border-radius: var(--radius-lg);
+  color: var(--color-slate-400);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.social-icon-large:hover {
+  border-color: var(--color-blue-400);
+  color: var(--color-blue-400);
+  background: rgba(15, 23, 42, 0.5);
+  transform: scale(1.1);
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid var(--color-slate-600);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  color: var(--color-slate-300);
+  transition: all var(--transition-normal);
+}
+
+.badge:hover {
+  border-color: var(--color-blue-400);
+  color: var(--color-blue-400);
+  transform: scale(1.05);
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 500;
+  color: var(--color-slate-300);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--color-slate-700);
+  border: 1px solid var(--color-slate-600);
+  border-radius: var(--radius-md);
+  color: var(--color-white);
+  font-size: 1rem;
+  transition: all var(--transition-normal);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-blue-400);
+  box-shadow: 0 0 0 1px var(--color-blue-400);
+}
+
+.form-input::placeholder {
+  color: var(--color-slate-400);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Loading Animation */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-white);
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
