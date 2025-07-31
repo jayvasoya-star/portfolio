@@ -121,28 +121,6 @@ const AnimationController = {
     })
   },
 
-  // Add scroll indicator
-  addScrollIndicator: () => {
-    const hero = window.Utils.dom.querySelector(".hero")
-    if (!hero) return
-
-    const scrollIndicator = document.createElement("div")
-    scrollIndicator.innerHTML = `
-            <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; display: none;" id="scrollIndicator">
-                <div style="width: 1.5rem; height: 2.5rem; border: 2px solid #475569; border-radius: 9999px; display: flex; justify-content: center;">
-                    <div style="width: 4px; height: 12px; background: #94a3b8; border-radius: 9999px; margin-top: 8px; animation: pulse 2s infinite;"></div>
-                </div>
-            </div>
-        `
-    hero.appendChild(scrollIndicator)
-
-    // Show scroll indicator on larger screens
-    const indicator = window.Utils.dom.getElementById("scrollIndicator")
-    if (window.Utils.device.isDesktop() && indicator) {
-      window.Utils.dom.setStyle(indicator, "display", "block")
-    }
-  },
-
   // Initialize hover effects
   initHoverEffects: () => {
     const cards = window.Utils.dom.querySelectorAll(".card, .stat-card, .skill-category, .contact-card")
@@ -163,7 +141,6 @@ const AnimationController = {
     AnimationController.initTypingAnimation()
     AnimationController.initScrollAnimations()
     AnimationController.addFloatingElements()
-    AnimationController.addScrollIndicator()
     AnimationController.initHoverEffects()
   },
 }

@@ -229,7 +229,6 @@
       this.initTypingAnimation()
       this.initScrollAnimations()
       this.addFloatingElements()
-      this.addScrollIndicator()
       this.initHoverEffects()
     },
 
@@ -336,27 +335,6 @@
 
         hero.appendChild(div)
       })
-    },
-
-    addScrollIndicator() {
-      const hero = Utils.$(".hero")
-      if (!hero) return
-
-      const scrollIndicator = document.createElement("div")
-      scrollIndicator.innerHTML = `
-                <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; display: none;" id="scrollIndicator">
-                    <div style="width: 1.5rem; height: 2.5rem; border: 2px solid #475569; border-radius: 9999px; display: flex; justify-content: center;">
-                        <div style="width: 4px; height: 12px; background: #94a3b8; border-radius: 9999px; margin-top: 8px; animation: pulse 2s infinite;"></div>
-                    </div>
-                </div>
-            `
-      hero.appendChild(scrollIndicator)
-
-      // Show scroll indicator on larger screens
-      const indicator = Utils.$("#scrollIndicator")
-      if (Utils.isDesktop() && indicator) {
-        indicator.style.display = "block"
-      }
     },
 
     initHoverEffects() {
