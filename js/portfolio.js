@@ -1,6 +1,6 @@
-// Jaydeep Vasoya Portfolio - Complete JavaScript
+
 ;(() => {
-  // Configuration
+  
   const CONFIG = {
     typing: {
       roles: ["Flutter Developer", "Mobile App Developer", "UI/UX Enthusiast", "Problem Solver"],
@@ -8,49 +8,51 @@
       deleteSpeed: 50,
       pauseTime: 2000,
     },
+    emailjs: {
+      serviceId: "service_0fnqy42", 
+      templateId: "template_kapglt3", 
+      publicKey: "EhAkzzXfH0F9eoE0b", 
+    },
     contact: {
-      emailTo: "jaydeepvasoya88@gmail.com",
-      emailSubjectPrefix: "Portfolio Contact: ",
-      successMessage: "Email client opened successfully!",
-      errorMessage: "There was an error. Please email directly at jaydeepvasoya88@gmail.com",
-      clipboardMessage: "Could not open email client. Email address copied to clipboard: jaydeepvasoya88@gmail.com",
+      successMessage: "Email sent successfully! I'll get back to you soon.",
+      errorMessage: "Failed to send email. Please try again or contact me directly.",
     },
     scroll: {
       navbarScrollThreshold: 50,
     },
   }
 
-  // Utility Functions
+  
   const Utils = {
-    // DOM helpers
+    
     $: (selector) => document.querySelector(selector),
     $$: (selector) => document.querySelectorAll(selector),
 
-    // Event helpers
+    
     on: (element, event, handler) => {
       if (element) element.addEventListener(event, handler)
     },
 
-    // Animation helpers
+    
     scrollToElement: (element, behavior = "smooth") => {
       if (element) {
         element.scrollIntoView({ behavior, block: "start" })
       }
     },
 
-    // Validation helpers
+    
     isValidEmail: (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
     isRequired: (value) => value && value.trim().length > 0,
     minLength: (value, min) => value && value.trim().length >= min,
 
-    // String helpers
+    
     cleanSpaces: (str) => str.replace(/\s+/g, " ").trim(),
 
-    // Device helpers
+    
     isMobile: () => window.innerWidth <= 768,
     isDesktop: () => window.innerWidth > 1024,
 
-    // Utility functions
+    
     debounce: (func, wait) => {
       let timeout
       return function executedFunction(...args) {
@@ -75,7 +77,7 @@
     },
   }
 
-  // Application State
+  
   const AppState = {
     mobileMenuOpen: false,
     isInitialized: false,
@@ -92,7 +94,7 @@
     },
   }
 
-  // Navigation Controller
+  
   const Navigation = {
     init() {
       this.initSmoothScrolling()
@@ -102,21 +104,20 @@
     },
 
     initSmoothScrolling() {
-      // Handle navigation links
+      
       Utils.$$('nav a[href^="#"], .mobile-menu a[href^="#"]').forEach((link) => {
         Utils.on(link, "click", (e) => {
           e.preventDefault()
           const targetId = link.getAttribute("href").substring(1)
           this.scrollToSection(targetId)
-
-          // Close mobile menu if open
+          
           if (AppState.mobileMenuOpen) {
             this.closeMobileMenu()
           }
         })
       })
 
-      // Handle view work button
+      
       const viewWorkBtn = Utils.$("#viewWorkBtn")
       Utils.on(viewWorkBtn, "click", () => {
         this.scrollToSection("projects")
@@ -134,17 +135,16 @@
       const mobileMenuBtn = Utils.$("#mobileMenuBtn")
       Utils.on(mobileMenuBtn, "click", () => this.toggleMobileMenu())
 
-      // Close menu when clicking outside
+      
       Utils.on(document, "click", (e) => {
         const mobileMenu = Utils.$("#mobileMenu")
         const mobileMenuBtn = Utils.$("#mobileMenuBtn")
-
         if (AppState.mobileMenuOpen && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
           this.closeMobileMenu()
         }
       })
 
-      // Close menu on escape key
+      
       Utils.on(document, "keydown", (e) => {
         if (e.key === "Escape" && AppState.mobileMenuOpen) {
           this.closeMobileMenu()
@@ -166,12 +166,11 @@
       const closeIcon = Utils.$("#closeIcon")
 
       AppState.mobileMenuOpen = true
-
       if (mobileMenu) mobileMenu.classList.add("active")
       if (menuIcon) menuIcon.style.display = "none"
       if (closeIcon) closeIcon.style.display = "block"
 
-      // Prevent body scroll
+      
       document.body.style.overflow = "hidden"
     },
 
@@ -181,12 +180,11 @@
       const closeIcon = Utils.$("#closeIcon")
 
       AppState.mobileMenuOpen = false
-
       if (mobileMenu) mobileMenu.classList.remove("active")
       if (menuIcon) menuIcon.style.display = "block"
       if (closeIcon) closeIcon.style.display = "none"
 
-      // Restore body scroll
+      
       document.body.style.overflow = ""
     },
 
@@ -207,15 +205,9 @@
 
     initResizeHandler() {
       const handleResize = Utils.debounce(() => {
-        // Close mobile menu on resize to desktop
+        
         if (Utils.isDesktop() && AppState.mobileMenuOpen) {
           this.closeMobileMenu()
-        }
-
-        // Update scroll indicator visibility
-        const scrollIndicator = Utils.$("#scrollIndicator")
-        if (scrollIndicator) {
-          scrollIndicator.style.display = Utils.isDesktop() ? "block" : "none"
         }
       }, 250)
 
@@ -223,7 +215,7 @@
     },
   }
 
-  // Animation Controller
+  
   const Animations = {
     init() {
       this.initTypingAnimation()
@@ -235,7 +227,6 @@
     initTypingAnimation() {
       const element = Utils.$("#typingText")
       if (!element) return
-
       AppState.typingState.element = element
       this.typeText()
     },
@@ -282,9 +273,9 @@
         })
       }, observerOptions)
 
-      // Observe sections
+      
       Utils.$$("section").forEach((section, index) => {
-        // Skip first section (hero)
+        
         if (index > 0) {
           section.classList.add("fade-in-section")
           observer.observe(section)
@@ -294,9 +285,8 @@
 
     animateElement(element) {
       element.classList.add("visible")
-
-      // Animate child elements with stagger
-      const children = element.querySelectorAll(".card, .stat-card, .skill-category")
+      
+      const children = element.querySelectorAll(".card, .stat-card, .skill-category, .project-card")
       children.forEach((child, index) => {
         setTimeout(() => {
           child.classList.add("animate-fade-in-up")
@@ -317,34 +307,30 @@
       floatingElements.forEach((element) => {
         const div = document.createElement("div")
         div.style.cssText = `
-                    position: absolute;
-                    width: ${element.size};
-                    height: ${element.size};
-                    background: ${element.color};
-                    border-radius: 50%;
-                    filter: blur(40px);
-                    animation: pulse 2s infinite;
-                    animation-delay: ${element.delay};
-                    z-index: 1;
-                    pointer-events: none;
-                `
-
+          position: absolute;
+          width: ${element.size};
+          height: ${element.size};
+          background: ${element.color};
+          border-radius: 50%;
+          filter: blur(40px);
+          animation: pulse 2s infinite;
+          animation-delay: ${element.delay};
+          z-index: 1;
+          pointer-events: none;
+        `
         if (element.top) div.style.top = element.top
         if (element.left) div.style.left = element.left
         if (element.right) div.style.right = element.right
-
         hero.appendChild(div)
       })
     },
 
     initHoverEffects() {
-      const cards = Utils.$$(".card, .stat-card, .skill-category, .contact-card")
-
+      const cards = Utils.$$(".card, .stat-card, .skill-category, .contact-card, .project-card")
       cards.forEach((card) => {
         Utils.on(card, "mouseenter", function () {
           this.style.transform = "translateY(-5px) scale(1.02)"
         })
-
         Utils.on(card, "mouseleave", function () {
           this.style.transform = "translateY(0) scale(1)"
         })
@@ -352,17 +338,25 @@
     },
   }
 
-  // Contact Controller
+  
   const Contact = {
     init() {
+      this.initEmailJS()
       this.initContactForm()
       this.initContactLinks()
+    },
+
+    initEmailJS() {
+      
+      const emailjs = window.emailjs 
+      if (emailjs) {
+        emailjs.init(CONFIG.emailjs.publicKey)
+      }
     },
 
     initContactForm() {
       const form = Utils.$("#contactForm")
       const submitBtn = Utils.$("#submitBtn")
-
       if (!form || !submitBtn) return
 
       AppState.formState.form = form
@@ -370,7 +364,7 @@
 
       Utils.on(form, "submit", (e) => this.handleFormSubmit(e))
 
-      // Add real-time validation
+      
       const inputs = form.querySelectorAll("input, textarea")
       inputs.forEach((input) => {
         Utils.on(input, "blur", () => this.validateField(input))
@@ -380,7 +374,6 @@
 
     handleFormSubmit(e) {
       e.preventDefault()
-
       if (AppState.formState.isSubmitting) return
 
       const formData = new FormData(AppState.formState.form)
@@ -391,7 +384,7 @@
         message: formData.get("message"),
       }
 
-      // Validate form
+      
       if (!this.validateForm(data)) {
         return
       }
@@ -403,7 +396,7 @@
       let isValid = true
       const errors = {}
 
-      // Validate name
+      
       if (!Utils.isRequired(data.name)) {
         errors.name = "Name is required"
         isValid = false
@@ -412,7 +405,7 @@
         isValid = false
       }
 
-      // Validate email
+      
       if (!Utils.isRequired(data.email)) {
         errors.email = "Email is required"
         isValid = false
@@ -421,7 +414,7 @@
         isValid = false
       }
 
-      // Validate subject
+      
       if (!Utils.isRequired(data.subject)) {
         errors.subject = "Subject is required"
         isValid = false
@@ -430,7 +423,7 @@
         isValid = false
       }
 
-      // Validate message
+      
       if (!Utils.isRequired(data.message)) {
         errors.message = "Message is required"
         isValid = false
@@ -439,7 +432,7 @@
         isValid = false
       }
 
-      // Display errors
+      
       if (!isValid) {
         this.displayFormErrors(errors)
       }
@@ -460,7 +453,6 @@
             error = "Name must be at least 2 characters"
           }
           break
-
         case "email":
           if (!Utils.isRequired(value)) {
             error = "Email is required"
@@ -468,7 +460,6 @@
             error = "Please enter a valid email address"
           }
           break
-
         case "subject":
           if (!Utils.isRequired(value)) {
             error = "Subject is required"
@@ -476,7 +467,6 @@
             error = "Subject must be at least 5 characters"
           }
           break
-
         case "message":
           if (!Utils.isRequired(value)) {
             error = "Message is required"
@@ -503,22 +493,20 @@
         }
       })
 
-      // Show general error message
+      
       this.showMessage("Please correct the errors above.", "error")
     },
 
     displayFieldError(field, message) {
       this.clearFieldError(field)
-
       const errorElement = document.createElement("div")
       errorElement.className = "field-error"
       errorElement.style.cssText = `
-                color: #ef4444;
-                font-size: 0.875rem;
-                margin-top: 0.25rem;
-            `
+        color: #ef4444;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+      `
       errorElement.textContent = message
-
       field.parentNode.appendChild(errorElement)
       field.style.borderColor = "#ef4444"
     },
@@ -534,71 +522,43 @@
     submitForm(data) {
       this.setSubmittingState(true)
 
-      try {
-        const { emailTo, emailSubjectPrefix } = CONFIG.contact
-        const emailSubject = `${emailSubjectPrefix}${Utils.cleanSpaces(data.subject)}`
-        const emailBody = this.createEmailBody(data)
-
-        // Create mailto URL with CC to user's email
-        const mailtoUrl = this.createMailtoUrl(emailTo, emailSubject, emailBody, data.email)
-
-        // Try to open email client
-        const opened = window.open(mailtoUrl, "_blank")
-
-        if (!opened) {
-          // Fallback: copy email to clipboard
-          this.handleEmailClientFallback()
-        } else {
-          this.handleSubmitSuccess()
-        }
-      } catch (error) {
-        console.error("Error opening email client:", error)
-        this.handleSubmitError()
-      } finally {
-        setTimeout(() => {
-          this.setSubmittingState(false)
-        }, 1000)
+      const emailjs = window.emailjs
+      if (!emailjs) {
+        console.error("EmailJS not loaded")
+        this.handleSubmitError("EmailJS service not available")
+        this.setSubmittingState(false)
+        return
       }
-    },
 
-    createEmailBody(data) {
-      return `Hi Jaydeep,
-
-Name: ${data.name}
-Email: ${data.email}
-
-Message:
-${data.message}
-
-Best regards,
-${data.name}`
-    },
-
-    createMailtoUrl(to, subject = "", body = "", cc = "") {
-      const params = new URLSearchParams()
-      if (subject) params.append("subject", subject)
-      if (body) params.append("body", body)
-      if (cc) params.append("cc", cc)
-
-      const queryString = params.toString()
-      return `mailto:${to}${queryString ? "?" + queryString : ""}`
-    },
-
-    handleEmailClientFallback() {
-      const { emailTo, clipboardMessage } = CONFIG.contact
-
-      if (navigator.clipboard) {
-        navigator.clipboard
-          .writeText(emailTo)
-          .then(() => {
-            this.showMessage(clipboardMessage, "info")
-          })
-          .catch(() => {
-            this.showMessage(`Could not open email client. Please email directly at: ${emailTo}`, "info")
-          })
-      } else {
-        this.showMessage(`Could not open email client. Please email directly at: ${emailTo}`, "info")
+      
+      const templateParams = {
+        from_name: data.name,
+        from_email: data.email,
+        subject: data.subject,
+        message: data.message,
+        to_email: "jaydeepvasoya88@gmail.com", 
+        to_name: "Jaydeep Vasoya",
+        reply_to: data.email,
       }
+
+      
+      emailjs
+        .send(CONFIG.emailjs.serviceId, CONFIG.emailjs.templateId, templateParams)
+        .then(
+          (response) => {
+            console.log("Email sent successfully:", response)
+            this.handleSubmitSuccess()
+          },
+          (error) => {
+            console.error("Email send failed:", error)
+            this.handleSubmitError("Failed to send email. Please try again.")
+          },
+        )
+        .finally(() => {
+          setTimeout(() => {
+            this.setSubmittingState(false)
+          }, 1000)
+        })
     },
 
     handleSubmitSuccess() {
@@ -607,21 +567,20 @@ ${data.name}`
       this.resetForm()
     },
 
-    handleSubmitError() {
-      const { errorMessage } = CONFIG.contact
+    handleSubmitError(message) {
+      const errorMessage = message || CONFIG.contact.errorMessage
       this.showMessage(errorMessage, "error")
     },
 
     setSubmittingState(isSubmitting) {
       AppState.formState.isSubmitting = isSubmitting
       const submitBtn = AppState.formState.submitBtn
-
       if (!submitBtn) return
 
       if (isSubmitting) {
         const originalContent = submitBtn.innerHTML
         submitBtn.setAttribute("data-original-content", originalContent)
-        submitBtn.innerHTML = '<div class="loading-spinner"></div> Opening Email...'
+        submitBtn.innerHTML = '<div class="loading-spinner"></div> Sending...'
         submitBtn.disabled = true
       } else {
         const originalContent = submitBtn.getAttribute("data-original-content")
@@ -629,8 +588,7 @@ ${data.name}`
           submitBtn.innerHTML = originalContent
         }
         submitBtn.disabled = false
-
-        // Reinitialize Lucide icons
+        
         if (window.lucide) {
           window.lucide.createIcons()
         }
@@ -640,12 +598,10 @@ ${data.name}`
     resetForm() {
       if (AppState.formState.form) {
         AppState.formState.form.reset()
-
-        // Clear any remaining errors
+        
         const errorElements = AppState.formState.form.querySelectorAll(".field-error")
         errorElements.forEach((error) => error.remove())
-
-        // Reset field styles
+        
         const fields = AppState.formState.form.querySelectorAll("input, textarea")
         fields.forEach((field) => {
           field.style.borderColor = ""
@@ -654,25 +610,25 @@ ${data.name}`
     },
 
     showMessage(message, type = "info") {
-      // Create message element
+      
       const messageElement = document.createElement("div")
       messageElement.className = `message message-${type}`
       messageElement.style.cssText = `
-                position: fixed;
-                top: 2rem;
-                right: 2rem;
-                z-index: 9999;
-                padding: 1rem 1.5rem;
-                border-radius: 0.5rem;
-                color: white;
-                font-weight: 500;
-                max-width: 400px;
-                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-                transform: translateX(100%);
-                transition: transform 0.3s ease;
-            `
+        position: fixed;
+        top: 2rem;
+        right: 2rem;
+        z-index: 9999;
+        padding: 1rem 1.5rem;
+        border-radius: 0.5rem;
+        color: white;
+        font-weight: 500;
+        max-width: 400px;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      `
 
-      // Set background color based on type
+      
       switch (type) {
         case "success":
           messageElement.style.background = "linear-gradient(to right, #10b981, #059669)"
@@ -689,12 +645,12 @@ ${data.name}`
       messageElement.textContent = message
       document.body.appendChild(messageElement)
 
-      // Animate in
+      
       setTimeout(() => {
         messageElement.style.transform = "translateX(0)"
       }, 100)
 
-      // Auto remove after 5 seconds
+      
       setTimeout(() => {
         messageElement.style.transform = "translateX(100%)"
         setTimeout(() => {
@@ -704,7 +660,7 @@ ${data.name}`
         }, 300)
       }, 5000)
 
-      // Allow manual close
+      
       Utils.on(messageElement, "click", () => {
         messageElement.style.transform = "translateX(100%)"
         setTimeout(() => {
@@ -716,7 +672,7 @@ ${data.name}`
     },
 
     initContactLinks() {
-      // Add click tracking for contact links
+      
       const contactLinks = Utils.$$(".contact-card, .social-icon, .social-icon-large")
       contactLinks.forEach((link) => {
         Utils.on(link, "click", () => {
@@ -731,12 +687,12 @@ ${data.name}`
     },
   }
 
-  // Main Application
+  
   const App = {
     init() {
       if (AppState.isInitialized) return
 
-      // Wait for DOM to be ready
+      
       if (document.readyState === "loading") {
         Utils.on(document, "DOMContentLoaded", () => this.onDOMReady())
       } else {
@@ -745,18 +701,18 @@ ${data.name}`
     },
 
     onDOMReady() {
-      // Show loading state
+      
       this.showLoadingState()
 
-      // Initialize Lucide icons
+      
       if (window.lucide) {
         window.lucide.createIcons()
       }
 
-      // Initialize all controllers
+      
       this.initializeControllers()
 
-      // Wait for window load for complete initialization
+      
       if (document.readyState === "complete") {
         this.onWindowLoad()
       } else {
@@ -769,7 +725,7 @@ ${data.name}`
       this.initializePostLoad()
       AppState.isInitialized = true
 
-      // Log initialization
+      
       console.log("🚀 Jaydeep Vasoya Portfolio - Loaded Successfully!")
       console.log("📱 Flutter Developer | Mobile App Specialist")
       console.log("💼 Available for freelance projects and collaborations")
@@ -778,16 +734,13 @@ ${data.name}`
 
     initializeControllers() {
       try {
-        // Initialize navigation
+        
         Navigation.init()
-
-        // Initialize animations
+        
         Animations.init()
-
-        // Initialize contact functionality
+        
         Contact.init()
-
-        // Initialize other features
+        
         this.initializeFeatures()
       } catch (error) {
         console.error("Error initializing controllers:", error)
@@ -795,18 +748,14 @@ ${data.name}`
     },
 
     initializeFeatures() {
-      // Initialize image preloading
-      this.preloadImages()
-
-      // Initialize error handling
+      
       this.initializeErrorHandling()
-
-      // Initialize accessibility features
+      
       this.initializeAccessibility()
     },
 
     initializePostLoad() {
-      // Initialize lazy loading
+      
       this.initializeLazyLoading()
     },
 
@@ -825,24 +774,13 @@ ${data.name}`
       }, 100)
     },
 
-    preloadImages() {
-      const images = []
-
-      images.forEach((src) => {
-        const img = new Image()
-        img.src = src
-        img.onload = () => console.log(`Preloaded: ${src}`)
-        img.onerror = () => console.warn(`Failed to preload: ${src}`)
-      })
-    },
-
     initializeErrorHandling() {
-      // Global error handler
+      
       Utils.on(window, "error", (e) => {
         console.error("Global error:", e.error)
       })
 
-      // Unhandled promise rejection handler
+      
       Utils.on(window, "unhandledrejection", (e) => {
         console.error("Unhandled promise rejection:", e.reason)
         e.preventDefault()
@@ -850,13 +788,11 @@ ${data.name}`
     },
 
     initializeAccessibility() {
-      // Add skip link
+      
       this.addSkipLink()
-
-      // Initialize keyboard navigation
+      
       this.initializeKeyboardNavigation()
-
-      // Initialize focus management
+      
       this.initializeFocusManagement()
     },
 
@@ -866,17 +802,17 @@ ${data.name}`
       skipLink.textContent = "Skip to main content"
       skipLink.className = "skip-link"
       skipLink.style.cssText = `
-                position: absolute;
-                top: -40px;
-                left: 6px;
-                background: #000;
-                color: #fff;
-                padding: 8px;
-                text-decoration: none;
-                border-radius: 4px;
-                z-index: 10000;
-                transition: top 0.3s;
-            `
+        position: absolute;
+        top: -40px;
+        left: 6px;
+        background: #000;
+        color: #fff;
+        padding: 8px;
+        text-decoration: none;
+        border-radius: 4px;
+        z-index: 10000;
+        transition: top 0.3s;
+      `
 
       Utils.on(skipLink, "focus", () => {
         skipLink.style.top = "6px"
@@ -888,7 +824,7 @@ ${data.name}`
 
       document.body.insertBefore(skipLink, document.body.firstChild)
 
-      // Add main content ID
+      
       const heroSection = Utils.$("#home")
       if (heroSection) {
         heroSection.id = "main-content"
@@ -897,17 +833,17 @@ ${data.name}`
     },
 
     initializeKeyboardNavigation() {
-      // Handle escape key for closing modals/menus
+      
       Utils.on(document, "keydown", (e) => {
         if (e.key === "Escape") {
-          // Close mobile menu if open
+          
           if (AppState.mobileMenuOpen) {
             Navigation.closeMobileMenu()
           }
         }
       })
 
-      // Handle tab navigation
+      
       Utils.on(document, "keydown", (e) => {
         if (e.key === "Tab") {
           document.body.classList.add("keyboard-navigation")
@@ -920,25 +856,24 @@ ${data.name}`
     },
 
     initializeFocusManagement() {
-      // Add focus styles for keyboard navigation
+      
       const style = document.createElement("style")
       style.textContent = `
-                .keyboard-navigation *:focus {
-                    outline: 2px solid #60a5fa !important;
-                    outline-offset: 2px !important;
-                }
-                
-                .keyboard-navigation .btn:focus {
-                    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.5) !important;
-                }
-            `
+        .keyboard-navigation *:focus {
+          outline: 2px solid #60a5fa !important;
+          outline-offset: 2px !important;
+        }
+        
+        .keyboard-navigation .btn:focus {
+          box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.5) !important;
+        }
+      `
       document.head.appendChild(style)
     },
 
     initializeLazyLoading() {
       if ("IntersectionObserver" in window) {
         const lazyImages = Utils.$$("img[data-src]")
-
         const imageObserver = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -949,12 +884,11 @@ ${data.name}`
             }
           })
         })
-
         lazyImages.forEach((img) => imageObserver.observe(img))
       }
     },
   }
 
-  // Initialize application
+  
   App.init()
 })()
